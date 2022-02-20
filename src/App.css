@@ -11,6 +11,7 @@ main {
   border: 1px solid #ccc;
   margin-bottom: 20px;
   box-shadow: 0 0 5px #ccc;
+  color: #442445;
 }
 .loginWrapper {
   display: flex;
@@ -25,4 +26,9 @@ main {
   justify-content: space-between;
   align-items: center;
   gap: 30px;
+}
+.btn-primary,
+.form-check-input:checked {
+  background-color: #442445 !important;
+  border-color: #442445 !important;
 }

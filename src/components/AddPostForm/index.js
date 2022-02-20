@@ -43,7 +43,7 @@ const AddPostForm = () => {
         validated={validated}
         onSubmit={handleSubmit}
       >
-        <h3 className="mb-4">Create new Post</h3>
+        <h3 className={styles.formTitle}>Create new Post</h3>
         <Row className="mb-3">
           <Form.Group as={Col} md="12" controlId="validationCustom02">
             <Form.Label>Post Title*</Form.Label>

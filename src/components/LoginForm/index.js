@@ -46,7 +46,7 @@ const LoginForm = () => {
         validated={validated}
         onSubmit={handleSubmit}
       >
-        <h3 className="mb-4">Please Create Account </h3>
+        <h3 className={styles.formTitle}>Please Create Account </h3>
         <Row className="mb-3">
           <Form.Group as={Col} md="12">
             <Form.Label>Profile Photo (Optional)</Form.Label>
