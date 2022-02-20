@@ -23,11 +23,12 @@ const LoginForm = () => {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+    } else {
+      dispatch(setUserInfo(formState));
+      navigate("/");
+      return;
     }
-
     setValidated(true);
-    dispatch(setUserInfo(formState));
-    navigate("/");
   };
 
   const handleChange = (event) => {
@@ -47,7 +48,7 @@ const LoginForm = () => {
       >
         <h3 className="mb-4">Please Create Account </h3>
         <Row className="mb-3">
-          <Form.Group as={Col} md="12" noValidate>
+          <Form.Group as={Col} md="12">
             <Form.Label>Profile Photo (Optional)</Form.Label>
             <Form.Control
               type="file"

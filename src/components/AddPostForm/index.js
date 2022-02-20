@@ -8,7 +8,7 @@ import { addNewPost } from "../../store/slices/posts";
 const AddPostForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [validated] = useState(false);
+  const [validated, setValidated] = useState(false);
   const [postData, setPostDat] = useState({
     title: "",
     body: "",
@@ -20,9 +20,12 @@ const AddPostForm = () => {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+    } else {
+      dispatch(addNewPost(postData));
+      navigate("/");
+      return;
     }
-    dispatch(addNewPost(postData));
-    navigate("/");
+    setValidated(true);
   };
 
   const handleChange = (event) => {
