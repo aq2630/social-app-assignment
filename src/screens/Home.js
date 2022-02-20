@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -13,19 +13,17 @@ const Home = () => {
   const storeState = useSelector((state) => state);
   const { postsData } = storeState.posts;
 
-  const reversedPosts = useMemo(() => {
-    return postsData.slice().reverse();
-  }, [postsData]);
-
   useEffect(() => {
-    console.log(storeState);
     if (!storeState.user.userInfo) {
       navigate("/login");
     }
-    if (storeState.posts.postsData.length === 0) {
+  }, [navigate, storeState]);
+
+  useEffect(() => {
+    if (postsData === null) {
       dispatch(fetchPosts());
     }
-  }, [dispatch, navigate, storeState]);
+  }, [dispatch, postsData]);
 
   return !storeState.user.userInfo ? (
     <main>
@@ -34,8 +32,8 @@ const Home = () => {
   ) : (
     <main>
       <div>
-        {reversedPosts.length !== 0 &&
-          reversedPosts.slice(0, 10).map((post) => {
+        {postsData.length !== 0 &&
+          postsData.slice(0, 10).map((post) => {
             return <SinglePost key={post.id} postData={post} />;
           })}
         <div className="buttonsWrapper">

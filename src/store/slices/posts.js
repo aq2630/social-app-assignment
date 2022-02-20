@@ -19,7 +19,7 @@ const postsSlice = createSlice({
     addPost: (state, action) => {
       return {
         ...state,
-        postsData: [...state.postsData, action.payload],
+        postsData: [action.payload, ...state.postsData],
       };
     },
   },
