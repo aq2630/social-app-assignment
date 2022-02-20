@@ -25,7 +25,7 @@ const Home = () => {
     if (storeState.posts.postsData.length === 0) {
       dispatch(fetchPosts());
     }
-  }, [dispatch]);
+  }, [dispatch, navigate, storeState]);
 
   return !storeState.user.userInfo ? (
     <main>

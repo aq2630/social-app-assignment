@@ -14,7 +14,7 @@ const AddPost = ({ history }) => {
     if (!storeState.user.userInfo) {
       navigate("/login");
     }
-  }, [dispatch]);
+  }, [dispatch, navigate, storeState]);
 
   return !storeState.user.userInfo ? (
     <main>
